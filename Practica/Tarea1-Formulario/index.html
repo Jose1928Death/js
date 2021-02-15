@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Formulario de validación</title>
+  </head>
+  <body>
+    <div class="container">
+      <form id="form" class="form">
+        <h2>Regístrate con nosotros</h2>
+        <div class="form-control">
+          <label for="username">Nombre Usuario</label>
+          <input type="text" id="username" placeholder="Introduce nombre usuario" maxlength="15" pattern="[A-Za-z]{3,15}" title="Introduce entre 3 y 15 caracteres" required/>
+          <small>Mensaje de Error</small>
+        </div>
+        <div class="form-control">
+          <label for="email">Email</label>
+          <input type="text" id="email" placeholder="Introduce email" pattern="^[^@\s]+@[^@\s]+\.[^@\s]+$" title="Introduce un email válido" required/>
+          <small>Mensaje de error</small>
+        </div>
+        <div class="form-control">
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="Introduce password" maxlength="25" pattern="[A-Za-z]{6,25}" title="Introduce al menos 6 caracteres" required/>
+          <small>Mensaje de error</small>
+        </div>
+        <div class="form-control">
+          <label for="password2">Confirmar password</label>
+          <input type="password" id="password2" placeholder="Introduce password de nuevo" maxlength="25" pattern="[A-Za-z]{6,25}" title="Introduce la contraseña otra vez" required/>
+          <small>Mensaje de error</small>
+        </div>
+        <button type="submit">Enviar</button>
+      </form>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

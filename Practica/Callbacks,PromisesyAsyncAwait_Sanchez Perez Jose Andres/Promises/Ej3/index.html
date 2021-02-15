@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title>Ej 3</title>
+        <script>
+
+            function cargarScript(url) {
+                return new Promise(
+                    function (exito){
+                        let script = document.createElement('script');
+                        script.src = url;
+
+                        exito(script);                
+                    }
+                );
+            }
+
+        cargarScript('https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.js')
+            .then((script) => document.head.append(script));
+
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

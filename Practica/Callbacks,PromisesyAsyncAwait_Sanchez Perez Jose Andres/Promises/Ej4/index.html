@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title>Ej 4</title>
+        <script>
+
+            let promesa1 = new Promise((exito,error) => {
+                setTimeout(() => exito(1),1000);
+            });
+
+            let promesa2 = new Promise((exito,error) => {
+                setTimeout(() =>exito(2),2000);
+            });
+
+            let promesa3 = new Promise((exito,error) => {
+                setTimeout(() =>exito(3),3000);
+                //setTimeout(() => error("Algo raro ha pasado"),1000);
+            });
+
+            //Promise.all
+            /*
+                Ejecuta todas las promesas a la vez una vez han terminado
+                pero si hay una mal, aunque sea una entre un millon de correctas, no se ejecuta ninguna
+            */
+
+            Promise.all([promesa1, promesa2, promesa3])
+                .then((valor) => console.log(valor))
+                .catch((msg) => console.log(msg));
+
+            //Promise.race
+            /*
+                Solo ejecuta la primera en terminar, da igual si funciono o dio error
+            */
+            
+            Promise.race([promesa1, promesa2, promesa3])
+                .then((valor) => console.log(valor))
+                .catch((msg) => console.log(msg));
+
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

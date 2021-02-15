@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title>Ej 5</title>
+        <script>
+
+            async function loadJson(url) {
+                let response = await fetch(url);
+
+                if (response.status == 200) {
+                    return await response.json();;
+                }else{
+                    throw new Error(response.status);
+                }
+              
+            }
+
+            loadJson('https://httpbin.org/json')
+                .then(() => console.log('Exito'))
+                .catch(() => console.log('Error'));
+
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <title>Ej 1.2</title>
+        <script>
+
+            function llamadaServidor(numSegundos,callback){
+                setTimeout(function () {
+                    if (numSegundos>4) {
+                        callback(true,"");
+                        return;
+                    }
+
+                    console.log(`Llamada al servidor de ${numSegundos} sg.`); 
+                    callback(false,numSegundos)
+                }, numSegundos*1000);    
+
+            }
+
+            function Paso1(error, numSegundos){     
+                if(error){
+                    console.log("Error en el script");
+                }else{
+                    console.log("La llamada ha tardado "+numSegundos+" sg.");  
+                    llamadaServidor(3, Paso2);
+                }                       
+            }
+
+            function Paso2(error, numSegundos){     
+                if(error){
+                    console.log("Error en el script");
+                }else{
+                    console.log("La llamada ha tardado "+numSegundos+" sg.");  
+                    llamadaServidor(5, Paso3);
+                }                       
+            }
+
+            function Paso3(error, numSegundos){     
+                if(error){
+                    console.log("Error en el script");
+                }else{
+                    console.log("La llamada ha tardado "+numSegundos+" sg.");  
+                    console.log("Fin.");
+                }                       
+            }
+
+            llamadaServidor(2, Paso1);
+
+        </script>
+    </head>
+    <body>
+    </body>
+</html>
